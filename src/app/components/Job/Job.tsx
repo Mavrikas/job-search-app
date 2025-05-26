@@ -1,31 +1,48 @@
 import { JobType } from '@/store/types';
-// import { formatDate } from '@/uitls';
+import { formatDate } from '@/store/uitls';
+import { Chip } from 'primereact/chip';
+import styles from './styles.module.css';
+import Link from 'next/link';
 
 type JobProps = {
   job: JobType;
+  lang?: string;
 };
 
-export function Job({ job }: JobProps) {
-  const tags = job.tags.map((tag) => '#' + tag);
+export function Job({ job, lang }: JobProps) {
   return (
-    <div
-      className="flex flex-col p-5 bg-[#fafafa] border border-solid border-3 rounded-lg m-1 cursor-pointer hover:shadow-md hover:shadow-black/10"
+    <Link
+      href={`/${lang}/${job.slug}`}
+      className="w-full sm:w-[350px] md:w-[400px] lg:w-[600px] xl:w-[800px] flex flex-col p-5 bg-[#fafafa] border-solid border-3 rounded-lg m-1 cursor-pointer hover:shadow-md hover:shadow-black/10 border-[3px] hover:border-[#7254f3] transition-colors duration-200 box-border"
       aria-label="Job listing"
-      key={job.id}
     >
-      <h2 className="text-2xl font-bold">
-        {job.title} @ {job.company}
-      </h2>
-      <p className="text-gray-600">{job.location}</p>
+      <h2 className="text-2xl font-bold">{job.title}</h2>
+      <h4> {job.company}</h4>
       <p className="text-gray-800">{job.description}</p>
-      <div className="flex flex-row justify-between ">
-        <span className="text-blue-500">{tags.join(' ')}</span> {job.postedAt}
+      <div className="flex flex-row justify-between flex-wrap">
+        <div className="flex flex-row justify-start items-center gap-2 flex-wrap mb-1 mt-2">
+          {job.tags.map((tag) => (
+            <Chip
+              key={job.id + tag}
+              label={tag}
+              icon={'pi pi-hashtag'}
+              className={styles['p-chip-text'] + ' size-fit'}
+            />
+          ))}
+        </div>
+        <div className="flex flex-row justify-start items-center gap-2 flex-wrap">
+          <Chip
+            label={job.location}
+            icon={'pi pi-map-marker'}
+            className={styles['p-chip-text'] + ' size-fit'}
+          />
+          <Chip
+            label={formatDate(job.postedAt)}
+            icon={'pi pi-calendar'}
+            className={styles['p-chip-text'] + ' size-fit'}
+          />
+        </div>
       </div>
-      <div className="flex flex-row items-center justify-end">
-        <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors w-[150px] ">
-          Apply Now
-        </button>
-      </div>
-    </div>
+    </Link>
   );
 }

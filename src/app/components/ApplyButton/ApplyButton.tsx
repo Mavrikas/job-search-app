@@ -1,0 +1,16 @@
+'use client';
+
+import { useDictionary } from '@/hooks/useDictionary';
+
+export function ApplyButton() {
+  const dic = useDictionary();
+  return (
+    <button
+      className="mt-4 px-6 py-2 bg-[#7254f3] text-white rounded hover:bg-[#6647f1] transition-colors w-[150px]"
+      onClick={() => alert('Good luck!')}
+      name="apply-button"
+    >
+      {dic?.apply ?? 'Apply Now'}
+    </button>
+  );
+}

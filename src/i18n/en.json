@@ -3,5 +3,12 @@
   "location": "Location",
   "categories": "Categories",
   "clearFilters": "Clear filters",
-  "search": "Search"
+  "search": "Search",
+  "ago": "ago",
+  "returnHome": "Return to Home",
+  "somethingWrong": "Something went wrong.",
+  "jobNotFound": "Job not found.",
+  "apply": "Apply Now",
+  "noJobs": "No jobs found.",
+  "noResults": "No Results."
 }

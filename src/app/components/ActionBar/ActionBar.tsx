@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import 'primeicons/primeicons.css';
 import { Filter, JobFilters } from '@/store/types';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { getDictionary } from '@/app/[lang]/dictionaries';
 import { ListBox, ListBoxChangeEvent } from 'primereact/listbox';
+import { useDictionary } from '@/hooks/useDictionary';
 
 type ActionBarProps = {
   filters: JobFilters;
@@ -19,16 +19,7 @@ export function ActionBar({ filters, lang }: ActionBarProps) {
   const [selectedCategory, setSelectedCategory] = useState<Filter | null>(null);
   const pathname = usePathname();
   const { push } = useRouter();
-  const [dic, setDic] = useState<Record<string, string> | null>(null);
-
-  useEffect(() => {
-    async function fetchDictionary() {
-      const lang = pathname.split('/')[1] || 'en';
-      const dictionary = await getDictionary(lang as 'en' | 'el');
-      setDic(dictionary);
-    }
-    fetchDictionary();
-  }, [pathname]);
+  const dic = useDictionary();
 
   useEffect(() => {
     const locationSlug = searchParams.get('location');
@@ -49,21 +40,6 @@ export function ActionBar({ filters, lang }: ActionBarProps) {
     }
   }, [searchParams, filters.locations, filters.categories]);
 
-  // const handleSelect = (
-  //   event: CheckboxChangeEvent,
-  //   type: 'location' | 'category',
-  //   slug: string
-  // ) => {
-  //   console.log('handleSelect', event, type, slug);
-  //   const params = new URLSearchParams(searchParams);
-  //   params.set('page', '1');
-  //   if (event.checked) {
-  //     params.set(type, slug);
-  //   } else {
-  //     params.delete(type);
-  //   }
-  //   push(`${pathname}?${params.toString()}`);
-  // };
   const handleSelect = (event: ListBoxChangeEvent, type: 'location' | 'category') => {
     if (type === 'location') {
       setSelectedLocation(event.value);
@@ -97,7 +73,9 @@ export function ActionBar({ filters, lang }: ActionBarProps) {
       <Sidebar visible={visible} onHide={() => setVisible(false)}>
         <div className="flex justify-between items-center mb-4">
           <h2>{dic?.filters}</h2>
-          <button onClick={clearFilters}>{dic?.clearFilters}</button>
+          <button name="clear-filters" onClick={clearFilters}>
+            {dic?.clearFilters}
+          </button>
         </div>
 
         <h3>{dic?.location}</h3>
@@ -109,26 +87,9 @@ export function ActionBar({ filters, lang }: ActionBarProps) {
           optionLabel={`label_${lang}`}
           className="w-full md:w-14rem"
           listStyle={{ maxHeight: '250px' }}
+          emptyFilterMessage={dic?.noResults}
         />
 
-        {/* <ul className="list-none p-0 m-0 max-h-48 overflow-y-auto">
-          {filters.locations.map((location) => (
-            <li
-              key={location.slug}
-              className="p-2 flex justify-between bg-gray-50 hover:bg-gray-200 cursor-pointer"
-            >
-              <label htmlFor="ingredient1" className="ml-2">
-                {(location as Record<string, string>)[`label_${lang}`]}
-              </label>
-              <Checkbox
-                inputId={location.slug}
-                onChange={(event) => handleSelect(event, 'location', location.slug)}
-                checked={searchParams.get('location') === location.slug}
-                className="border-2 border-gray-400 rounded-md hover:border-blue-500 focus:ring-blue-500 focus:ring-2"
-              />
-            </li>
-          ))}
-        </ul> */}
         <h3>{dic?.categories}</h3>
         <ListBox
           filter
@@ -138,25 +99,12 @@ export function ActionBar({ filters, lang }: ActionBarProps) {
           optionLabel={`label_${lang}`}
           className="w-full md:w-14rem"
           listStyle={{ maxHeight: '250px' }}
+          emptyFilterMessage={dic?.noResults}
         />
-        {/* <ul className="list-none p-0 m-0 max-h-48 overflow-y-auto">
-          {filters.categories.map((category) => (
-            <li key={category.slug} className="p-2 hover:bg-gray-100 cursor-pointer">
-              <label htmlFor="ingredient1" className="ml-2">
-                {(category as Record<string, string>)[`label_${lang}`]}
-              </label>
-              <Checkbox
-                inputId={category.slug}
-                onChange={(event) => handleSelect(event, 'category', category.slug)}
-                checked={searchParams.get('category') === category.slug}
-                className="border-2 border-gray-400 rounded-md"
-              />
-            </li>
-          ))}
-        </ul> */}
       </Sidebar>
       <button
-        className="pi pi-filter-fill bg-blue-600 text-white rounded-full fixed bottom-10 left-6 p-4 shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        name="open-filters"
+        className="pi pi-filter-fill bg-[#7254f3] text-white rounded-full fixed bottom-10 left-6 p-4 shadow-lg hover:bg-[#6647f1] focus:outline-none "
         onClick={() => setVisible(true)}
       />
     </div>

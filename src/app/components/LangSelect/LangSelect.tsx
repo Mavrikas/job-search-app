@@ -1,5 +1,5 @@
 'use client';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Dropdown } from 'primereact/dropdown';
 import { useSearchParams } from 'next/navigation';
 
@@ -9,6 +9,7 @@ type LangSelectProps = {
 
 export function LangSelect({ lang }: LangSelectProps) {
   const { push } = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
 
   const items = [
@@ -16,11 +17,19 @@ export function LangSelect({ lang }: LangSelectProps) {
     { name: 'Ελληνικά', code: 'el' },
   ];
   const selectedItem = items.find((item) => item.code === lang);
+
   return (
     <Dropdown
       value={selectedItem}
       onChange={(e) => {
-        push(`${e.value.code}?${searchParams.toString()}`);
+        const segments = pathname.split('/').filter(Boolean);
+        if (segments.length > 0) {
+          segments[0] = e.value.code;
+        } else {
+          segments.push(e.value.code);
+        }
+        const newPath = '/' + segments.join('/');
+        push(`${newPath}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`);
       }}
       options={items}
       optionLabel="name"

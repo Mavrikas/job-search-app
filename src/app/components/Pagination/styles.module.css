@@ -1,5 +1,7 @@
 .p-highlight button[aria-current='true'] {
-  background-color: rgb(22, 191, 238);
+  /* background-color: rgb(22, 191, 238); */
+  background-color: #e2dcfc;
   font-weight: 600;
-  color: rgb(35, 36, 36);
+  /* color: rgb(35, 36, 36); */
+  color: #7254f3;
 }
