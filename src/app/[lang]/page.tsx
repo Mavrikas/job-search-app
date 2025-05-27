@@ -1,3 +1,4 @@
+import React from 'react';
 import { JobsList } from '../components/JobsList/JobsList';
 import { Suspense } from 'react';
 import { Search } from '../components/Search/Search';

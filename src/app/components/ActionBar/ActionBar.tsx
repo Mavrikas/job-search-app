@@ -73,13 +73,14 @@ export function ActionBar({ filters, lang }: ActionBarProps) {
       <Sidebar visible={visible} onHide={() => setVisible(false)}>
         <div className="flex justify-between items-center mb-4">
           <h2>{dic?.filters}</h2>
-          <button name="clear-filters" onClick={clearFilters}>
+          <button data-testid="clear-filters-button" name="clear-filters" onClick={clearFilters}>
             {dic?.clearFilters}
           </button>
         </div>
 
         <h3>{dic?.location}</h3>
         <ListBox
+          data-testid="location-listbox"
           filter
           value={selectedLocation}
           onChange={(event) => handleSelect(event, 'location')}
@@ -92,6 +93,7 @@ export function ActionBar({ filters, lang }: ActionBarProps) {
 
         <h3>{dic?.categories}</h3>
         <ListBox
+          data-testid="category-listbox"
           filter
           value={selectedCategory}
           onChange={(event) => handleSelect(event, 'category')}
@@ -103,6 +105,8 @@ export function ActionBar({ filters, lang }: ActionBarProps) {
         />
       </Sidebar>
       <button
+        data-testid="open-filters-button"
+        role="button"
         name="open-filters"
         className="pi pi-filter-fill bg-[#7254f3] text-white rounded-full fixed bottom-10 left-6 p-4 shadow-lg hover:bg-[#6647f1] focus:outline-none "
         onClick={() => setVisible(true)}

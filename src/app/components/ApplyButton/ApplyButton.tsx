@@ -1,5 +1,5 @@
 'use client';
-
+import React from 'react';
 import { useDictionary } from '@/hooks/useDictionary';
 
 export function ApplyButton() {

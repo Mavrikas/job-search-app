@@ -1,3 +1,4 @@
+import React from 'react';
 import { URL } from '@/store/constants';
 import { JobsResponse } from '@/store/types';
 import { Chip } from 'primereact/chip';

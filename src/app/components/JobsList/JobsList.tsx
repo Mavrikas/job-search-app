@@ -1,3 +1,4 @@
+import React from 'react';
 import { JobsResponse, JobType } from '@/store/types';
 import { Job } from '../Job/Job';
 import { Pagination } from '../Pagination/Pagination';

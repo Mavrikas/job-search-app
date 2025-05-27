@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobDetails renders job details when job is found 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-col items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
+  >
+    <main>
+      <div
+        class="border-solid border-3 rounded-lg p-5 bg-[#fafafa] max-w-[800px] min-w-[400px] m-1"
+      >
+        <h1
+          class="text-2xl font-bold"
+        >
+          Test Job Title
+        </h1>
+        <h3
+          class="text-lg font-medium"
+        >
+          Test Company
+        </h3>
+        <div
+          class="flex flex-row justify-start items-center gap-2 mt-2"
+        >
+          <span>
+            Test Location
+          </span>
+          <span>
+            formatted-2024-06-01
+          </span>
+        </div>
+        <span>
+          Test Category
+        </span>
+        <p
+          class="text-lg mt-3 max-w-[600px]"
+        >
+          Test job description
+        </p>
+        <div
+          class="flex flex-row justify-start items-center gap-2 mt-10"
+        >
+          <span>
+            tag1
+          </span>
+          <span>
+            tag2
+          </span>
+        </div>
+        <div
+          class="flex flex-row items-center justify-end"
+        >
+          <button>
+            Apply
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`JobDetails renders not found message when job is not found 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-col items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
+  >
+    <main>
+      <div
+        class="border-solid border-3 rounded-lg p-5 bg-[#fafafa] max-w-[800px] min-w-[400px] m-1"
+      >
+        <h1
+          class="text-2xl font-bold"
+        >
+          Something went wrong.
+        </h1>
+        <p
+          class="text-lg mt-3 max-w-[600px] mb-4"
+        >
+          Job not found.
+        </p>
+        <a
+          href="/en"
+        >
+          Return to Home
+        </a>
+      </div>
+    </main>
+  </div>
+</DocumentFragment>
+`;

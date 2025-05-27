@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 import { Paginator } from 'primereact/paginator';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import styles from './styles.module.css';
