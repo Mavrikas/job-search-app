@@ -17,9 +17,9 @@ export async function Header({ lang }: HeaderProps) {
     { id: 2, name: dic.about, href: `/${lang}/about`, icon: 'pi pi-info-circle' },
   ];
   return (
-    <header className="bg-[#927eec]  text-white p-4 flex items-center justify-start">
-      <Link href={`/${lang}`} className="text-2xl font-bold">
-        <Image src="/logo5.png" alt="Hired" width={150} height={150} />
+    <header className="bg-[#7254f3]  text-white p-4 flex items-center justify-start">
+      <Link href={`/${lang}`} className="text-2xl font-bold" aria-label="Logo">
+        <Image src="/logo5.webp" alt="Hired" width={150} height={150} priority={true} />
       </Link>
       <nav className="hidden sm:flex space-x-4 flex-grow mr-[20px] justify-end">
         {menuItems.map((item) => (

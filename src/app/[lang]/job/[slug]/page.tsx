@@ -25,7 +25,7 @@ export default async function JobDetails({ params }: JobDetailsProps) {
         <h1 className="text-2xl font-bold">{dic.somethingWrong}</h1>
         <p className="text-lg mt-3 max-w-[600px] mb-4">{dic.jobNotFound}</p>
         <Link
-          className="px-6 py-2 bg-[#927eec] text-white rounded hover:bg-[#6647f1] transition-colors w-[150px]"
+          className="px-6 py-2 bg-[#7254f3] text-white rounded hover:bg-[#6647f1] transition-colors w-[150px]"
           href={`/${lang}`}
         >
           {dic.returnHome}

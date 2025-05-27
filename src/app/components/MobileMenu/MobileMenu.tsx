@@ -14,14 +14,14 @@ export function MobileMenu({ menuItems }: MobileMenuProps) {
   return (
     <div className="flex md:hidden flex-grow ml-4 relative">
       <button
-        className="p-2 rounded bg-[#927eec] border border-white"
+        className="p-2 rounded bg-[#7254f3] border border-white"
         onClick={() => setMenuOpen((open) => !open)}
         aria-label="Open menu"
       >
         <span className="pi pi-bars text-2xl" />
       </button>
       {menuOpen && (
-        <div className="absolute top-12 left-0 bg-[#927eec] border border-white rounded shadow-lg z-50 min-w-[150px]">
+        <div className="absolute top-12 left-0 bg-[#7254f3] border border-white rounded shadow-lg z-50 min-w-[150px]">
           {menuItems.map((item: MenuItemProps) => (
             <Link
               key={item.id}

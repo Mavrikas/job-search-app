@@ -63,7 +63,7 @@ describe('Header', () => {
     render(await Header({ lang: 'en' }));
     const logo = await screen.findByAltText('Hired');
     expect(logo).toBeDefined();
-    expect(logo).toHaveProperty('src', 'http://localhost/logo5.png');
+    expect(logo).toHaveProperty('src', 'http://localhost/logo5.webp');
     const link = await screen.findByRole('link');
     expect(link).toHaveProperty('href', 'http://localhost/en');
   });

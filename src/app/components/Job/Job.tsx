@@ -14,11 +14,11 @@ export function Job({ job, lang }: JobProps) {
   return (
     <Link
       href={`/${lang}/job/${job.slug}`}
-      className="w-full sm:w-[350px] md:w-[400px] lg:w-[600px] xl:w-[800px] flex flex-col p-5 bg-[#fafafa] border-solid border-3 rounded-lg m-1 cursor-pointer hover:shadow-md hover:shadow-black/10 border-[3px] hover:border-[#927eec] transition-colors duration-200 box-border"
+      className="w-full sm:w-[350px] md:w-[400px] lg:w-[600px] xl:w-[800px] flex flex-col p-5 bg-[#fafafa] border-solid border-3 rounded-lg m-1 cursor-pointer hover:shadow-md hover:shadow-black/10 border-[3px] hover:border-[#7254f3] transition-colors duration-200 box-border"
       aria-label="Job listing"
     >
       <h2 className="text-2xl font-bold">{job.title}</h2>
-      <h4> {job.company}</h4>
+      <p className="text-lg font-medium"> {job.company}</p>
       <p className="text-gray-800">{job.description}</p>
       <div className="flex flex-row justify-between flex-wrap">
         <div className="flex flex-row justify-start items-center gap-2 flex-wrap mb-1 mt-2">
