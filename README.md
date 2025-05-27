@@ -1,6 +1,7 @@
 ## Getting Started
 
 Made with Node version 22.3.0
+Requires Node
 
 To run the app:
 
