@@ -25,6 +25,7 @@ export function MobileMenu({ menuItems }: MobileMenuProps) {
           {menuItems.map((item: MenuItemProps) => (
             <Link
               key={item.id}
+              aria-label={item.name}
               href={item.href}
               className="block px-4 py-2 hover:bg-[#5a3fd4]"
               onClick={() => setMenuOpen(false)}

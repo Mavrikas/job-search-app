@@ -9,7 +9,12 @@ export type MenuItemProps = {
 
 export async function MenuItem({ id, href, name, icon }: MenuItemProps) {
   return (
-    <Link href={href} data-testid={`menu-item-${id}`} className="text-lg font-bold">
+    <Link
+      href={href}
+      data-testid={`menu-item-${id}`}
+      aria-label={name}
+      className="text-lg font-bold"
+    >
       <i className={`${icon} mr-2`}></i>
       {name}
     </Link>

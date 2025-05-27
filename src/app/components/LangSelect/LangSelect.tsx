@@ -21,6 +21,7 @@ export function LangSelect({ lang }: LangSelectProps) {
 
   return (
     <Dropdown
+      aria-label="Language Select"
       value={selectedItem}
       onChange={(e) => {
         const segments = pathname.split('/').filter(Boolean);

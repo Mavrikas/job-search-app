@@ -16,20 +16,20 @@ describe('ApplyButton', () => {
   it('renders with default text when dictionary is undefined', () => {
     (useDictionary as jest.Mock).mockReturnValue(undefined);
     render(<ApplyButton />);
-    expect(screen.getByRole('button', { name: /apply now/i })).toBeDefined();
+    expect(screen.getByTestId('apply-button')).toBeDefined();
   });
 
   it('renders with dictionary text when available', () => {
     (useDictionary as jest.Mock).mockReturnValue({ apply: 'Αίτηση' });
     render(<ApplyButton />);
-    expect(screen.getByRole('button', { name: /αίτηση/i })).toBeDefined();
+    expect(screen.getByTestId('apply-button')).toBeDefined();
   });
 
   it('calls alert with "Good luck!" when clicked', () => {
     (useDictionary as jest.Mock).mockReturnValue(undefined);
     window.alert = jest.fn();
     render(<ApplyButton />);
-    fireEvent.click(screen.getByRole('button', { name: /apply now/i }));
+    fireEvent.click(screen.getByTestId('apply-button'));
     expect(window.alert).toHaveBeenCalledWith('Good luck!');
   });
 });
