@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import JobDetails from './page';
+import JobDetails from '../../job/[slug]/page';
 import '@testing-library/jest-dom';
 
 // Mocks

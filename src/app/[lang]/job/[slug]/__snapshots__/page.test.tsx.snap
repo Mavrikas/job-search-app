@@ -3,7 +3,7 @@
 exports[`JobDetails renders job details when job is found 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
+    class="flex flex-col items-center min-h-screen p-8 pb-20 gap-8 sm:p-20 font-[family-name:var(--font-geist-sans)]"
   >
     <main>
       <div
@@ -63,7 +63,7 @@ exports[`JobDetails renders job details when job is found 1`] = `
 exports[`JobDetails renders not found message when job is not found 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
+    class="flex flex-col items-center min-h-screen p-8 pb-20 gap-8 sm:p-20 font-[family-name:var(--font-geist-sans)]"
   >
     <main>
       <div

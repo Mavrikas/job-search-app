@@ -10,5 +10,9 @@
   "jobNotFound": "Η θέση εργασίας δεν βρέθηκε.",
   "apply": "Κάνε αίτηση",
   "noJobs": "Δεν βρέθηκαν θέσεις εργασίας.",
-  "noResults": "Δεν βρέθηκαν αποτελέσματα."
+  "noResults": "Δεν βρέθηκαν αποτελέσματα.",
+  "home": "Αρχική",
+  "about": "Σχετικά με εμάς",
+  "aboutTitle": "Σχετικά με την πλατφόρμα",
+  "aboutDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet pellentesque ligula. Morbi fermentum bibendum ornare. Cras massa urna, gravida sed lacus pretium, congue dignissim elit. Donec lorem nulla, tristique in eleifend facilisis, fringilla eu augue. Nulla eu elementum orci. Sed dictum venenatis lobortis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus consequat elit magna, euismod pellentesque augue dapibus eget. Maecenas ultricies, turpis ut pretium interdum, erat mi pharetra nisl, sed placerat urna dolor eget ex."
 }

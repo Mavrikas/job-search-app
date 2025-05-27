@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 import { formatDate } from '@/store/uitls';
 import { ApplyButton } from '@/app/components/ApplyButton/ApplyButton';
 import Link from 'next/link';
-import { getDictionary } from '../dictionaries';
+import { getDictionary } from '../../dictionaries';
 
 type JobDetailsProps = {
   params: Promise<{ slug: string; lang: string }>;
@@ -25,7 +25,7 @@ export default async function JobDetails({ params }: JobDetailsProps) {
         <h1 className="text-2xl font-bold">{dic.somethingWrong}</h1>
         <p className="text-lg mt-3 max-w-[600px] mb-4">{dic.jobNotFound}</p>
         <Link
-          className="px-6 py-2 bg-[#7254f3] text-white rounded hover:bg-[#6647f1] transition-colors w-[150px]"
+          className="px-6 py-2 bg-[#927eec] text-white rounded hover:bg-[#6647f1] transition-colors w-[150px]"
           href={`/${lang}`}
         >
           {dic.returnHome}
@@ -73,7 +73,7 @@ export default async function JobDetails({ params }: JobDetailsProps) {
     );
   }
   return (
-    <div className="flex flex-col items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="flex flex-col items-center min-h-screen p-8 pb-20 gap-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main>
         <div className="border-solid border-3 rounded-lg p-5 bg-[#fafafa] max-w-[800px] min-w-[400px] m-1">
           {body}

@@ -7,7 +7,7 @@ import 'primereact/resources/primereact.css';
 import 'primeicons/primeicons.css';
 import { PrimeReactProvider } from 'primereact/api';
 
-const geistSans = Roboto({
+const roboto = Roboto({
   variable: '--font-roboto',
   subsets: ['latin'],
   weight: ['400'],
@@ -28,7 +28,7 @@ export default async function RootLayout({
   const { lang } = await params;
   return (
     <html lang={lang}>
-      <body className={`${geistSans.variable} antialiased`}>
+      <body className={`${roboto.variable} antialiased`}>
         <PrimeReactProvider>
           <Header lang={lang} />
           {children}

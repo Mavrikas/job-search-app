@@ -108,7 +108,7 @@ export function ActionBar({ filters, lang }: ActionBarProps) {
         data-testid="open-filters-button"
         role="button"
         name="open-filters"
-        className="pi pi-filter-fill bg-[#7254f3] text-white rounded-full fixed bottom-10 left-6 p-4 shadow-lg hover:bg-[#6647f1] focus:outline-none "
+        className="pi pi-filter-fill bg-[#927eec] text-white rounded-full fixed bottom-10 left-6 p-4 shadow-lg hover:bg-[#6647f1] focus:outline-none "
         onClick={() => setVisible(true)}
       />
     </div>

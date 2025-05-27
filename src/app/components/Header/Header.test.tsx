@@ -26,6 +26,38 @@ jest.mock('../LangSelect/LangSelect', () => ({
   LangSelect: ({ lang }: { lang: string }) => <div data-testid="lang-select">{lang}</div>,
 }));
 
+// Mock getDictionary
+jest.mock('@/app/[lang]/dictionaries', () => ({
+  getDictionary: jest.fn(async (lang: 'en' | 'el') => {
+    if (lang === 'en') {
+      return { home: 'Home', about: 'About' };
+    }
+    return { home: 'Αρχική', about: 'Σχετικά' };
+  }),
+}));
+
+// Mock MenuItem
+jest.mock('../MenuItem/MenuItem', () => ({
+  MenuItem: ({ id, name, href, icon }: any) => (
+    <div data-testid={`menu-item-${id}`}>
+      <span>{name}</span>
+      <span>{href}</span>
+      <span>{icon}</span>
+    </div>
+  ),
+}));
+
+// Mock MobileMenu
+jest.mock('../MobileMenu/MobileMenu', () => ({
+  MobileMenu: ({ menuItems }: any) => (
+    <div data-testid="mobile-menu">
+      {menuItems.map((item: any) => (
+        <span key={item.id}>{item.name}</span>
+      ))}
+    </div>
+  ),
+}));
+
 describe('Header', () => {
   it('renders the logo with correct src and alt and the link with correct href', async () => {
     render(await Header({ lang: 'en' }));

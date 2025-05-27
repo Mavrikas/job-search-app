@@ -59,6 +59,6 @@ describe('Job', () => {
   it('renders link with correct href and lang', () => {
     render(<Job job={mockJob} lang="en" />);
     const link = screen.getByRole('link', { name: /job listing/i });
-    expect(link).toHaveProperty('href', 'http://localhost/en/frontend-developer');
+    expect(link).toHaveProperty('href', 'http://localhost/en/job/frontend-developer');
   });
 });

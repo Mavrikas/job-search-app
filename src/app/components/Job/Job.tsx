@@ -13,8 +13,8 @@ type JobProps = {
 export function Job({ job, lang }: JobProps) {
   return (
     <Link
-      href={`/${lang}/${job.slug}`}
-      className="w-full sm:w-[350px] md:w-[400px] lg:w-[600px] xl:w-[800px] flex flex-col p-5 bg-[#fafafa] border-solid border-3 rounded-lg m-1 cursor-pointer hover:shadow-md hover:shadow-black/10 border-[3px] hover:border-[#7254f3] transition-colors duration-200 box-border"
+      href={`/${lang}/job/${job.slug}`}
+      className="w-full sm:w-[350px] md:w-[400px] lg:w-[600px] xl:w-[800px] flex flex-col p-5 bg-[#fafafa] border-solid border-3 rounded-lg m-1 cursor-pointer hover:shadow-md hover:shadow-black/10 border-[3px] hover:border-[#927eec] transition-colors duration-200 box-border"
       aria-label="Job listing"
     >
       <h2 className="text-2xl font-bold">{job.title}</h2>
